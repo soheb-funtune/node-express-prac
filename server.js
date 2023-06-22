@@ -10,6 +10,7 @@ app.use(errorHandler);
 app.use(express.json());
 // CONTACT BASE ROUTE
 app.use("/api/contacts", require("./routes/contactRoute"));
+app.use("/api/users", require("./routes/userRoute"));
 
 app.listen(port, () => {
   console.log("server is running on port 5000");

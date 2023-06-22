@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const validateToken = require("../middleware/validateTokenHanler");
 
 const {
   getContacts,
@@ -9,6 +10,7 @@ const {
   deleteContact,
 } = require("../controllers/contactController");
 
+router.use(validateToken);
 // we can also write like this "GET and POST" combinelly
 router.route("/").get(getContacts).post(createContact);
 router.route("/:id").get(getContact).put(updateContact).delete(deleteContact);
